@@ -79,7 +79,7 @@ res.render('index');
 app.use(AWSXRay.express.closeSegment()); //required at the end of your routes / first in error handling routes
 ```
 
-For more information about all options and possibilities to instrument your application code, see the X-Ray documentation (https://aws.amazon.com/documentation/xray/) page for the corresponding SDK information.
+For more information about all options and possibilities to instrument your application code, see the X-Ray [documentation](https://aws.amazon.com/documentation/xray/) page for the corresponding SDK information.
 
 The image below shows the resulting service map that provides insights into the flow of requests through the microservice landscape. You can drill down here into individual traces and see which path each request has taken.
 
