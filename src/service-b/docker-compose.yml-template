@@ -1,0 +1,26 @@
+version: '2'
+services:
+  service-b:
+    image: ${REGISTRY_URL_SERVICE_B}
+    ports:
+    - 8080:8080
+    environment:
+      AWS_XRAY_DAEMON_ADDRESS:
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/service-b
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: ecs
+  x-ray:
+    image: ${REGISTRY_URL_XRAY_DAEMON}
+    ports:
+    - 2000:2000/udp
+    environment:
+      AWS_XRAY_DAEMON_ADDRESS:
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/service-b
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: ecs

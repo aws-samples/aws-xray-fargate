@@ -1,0 +1,68 @@
+{
+        "memory": "512",
+        "networkMode": "awsvpc",
+        "family": "service-b",
+        "placementConstraints": [],
+        "cpu": "256",
+        "executionRoleArn": "<ecs_execution_role_arn>",
+        "volumes": [],
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "taskRoleArn": "<task_role_arn>",
+        "containerDefinitions": [
+            {
+                "environment": [
+                    {
+                        "name": "AWS_XRAY_DAEMON_ADDRESS",
+                        "value": ""
+                    }
+                ],
+                "name": "service-b",
+                "mountPoints": [],
+                "image": "<repository_url_service_b>",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "protocol": "tcp",
+                        "containerPort": 8080,
+                        "hostPort": 8080
+                    }
+                ],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-region": "us-east-1",
+                        "awslogs-stream-prefix": "ecs",
+                        "awslogs-group": "/ecs/service-b"
+                    }
+                },
+                "essential": true,
+                "volumesFrom": []
+            },
+            {
+                "environment": [],
+                "name": "xray-sidecar",
+                "mountPoints": [],
+                "image": "<repository_uri_xray_daemon>",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "protocol": "udp",
+                        "containerPort": 2000,
+                        "hostPort": 2000
+                    }
+                ],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-region": "us-east-1",
+                        "awslogs-stream-prefix": "ecs",
+                        "awslogs-group": "/ecs/service-b"
+                    }
+                },
+                "essential": true,
+                "volumesFrom": []
+            }
+        ]
+    }

@@ -1,0 +1,17 @@
+{
+  "name": "xray-demo-service-a",
+  "version": "1.0.0",
+  "description": "Express application with X-Ray traces",
+  "author": "Christoph Kassen <chrkas@amazon.de>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "aws-sdk": "latest",
+    "aws-xray-sdk": "latest",
+    "body-parser": "latest",
+    "querystring": "latest"
+  }
+}
