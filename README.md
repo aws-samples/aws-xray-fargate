@@ -10,9 +10,11 @@ Containers have become a popular vehicle for packaging and deploying microservic
 
 The remainder of this post explains how to run X-Ray as a sidecar container in a Fargate task. By doing this, you will be able to provide application tracing capabilities to services running on Fargate.
 
-The code, including a simple Node.js based demo application is available in the corresponding aws-xray-fargate (https://github.com/jicowan/aws-xray-kubernetes/tree/master/fargate) GitHub repository, so you can quickly get started with X-Ray.
+The code, including a simple Node.js based demo application is available in the [src] folder, so you can quickly get started with X-Ray.
 
 The sample application within the repository consists of two simple microservices, Service-A and Service-B. The following diagram illustrates how each service is deployed with 2 Fargate services:
+
+![xray-traffic-flow](/images/xray-traffic-flow.jpeg)
 
 
 * Requests are sent to the Service-A from clients.
@@ -81,17 +83,19 @@ For more information about all options and possibilities to instrument your appl
 
 The image below shows the resulting service map that provides insights into the flow of requests through the microservice landscape. You can drill down here into individual traces and see which path each request has taken.
 
+![xray-service-map](/images/xray-servicemap-1024x403.jpeg)
 
 From the service map, you can drill down into individual requests and see where they originated from and how much time was spent in each service processing the request.
 
+![xray-trace](/images/xray-trace-1024x337.jpeg)
 
 You can also view details about every individual segment of the trace by clicking on it. This displays gives more details.
 
+![xray-segment](/images/xray-segment-info-1024x776.jpeg)
 
 ## Summary
 
 In this post I shared how to deploy and run X-Ray running as a sidecar container in a Fargate task. By using X-Ray for distributed tracing you can get insights into how well your applications are performing and spot issues early before them become real problems.
-
 
 ## License
 
