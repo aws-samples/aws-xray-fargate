@@ -37,7 +37,7 @@ If you do not have an ECS cluster running within your AWS environment, create it
 
 In Christoph Kassen’s blog post, he describes how to deploy the X-Ray pod as a Kubernetes daemonset. A daemonset is a special type of deployment strategy that places one instance of a pod onto each instance in the cluster. It will also deploy an instance of that pod onto Kubernetes workers as they’re added to the cluster. Since Fargate doesn’t yet have support for daemonsets, you have to deploy X-Ray as a sidecar container. A sidecar container is a container that runs alongside another container in the same Fargate task.
 
-[INSERT IMAGE SHOWING X-RAY AS A SIDECAR]
+![xray-sidecar](/images/xray-sidecar.jpeg)
 
 The task definitions in the GitHub repository are already configured to run X-Ray as a sidecar container.
 
