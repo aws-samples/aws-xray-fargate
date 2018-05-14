@@ -10,7 +10,7 @@ Containers have become a popular vehicle for packaging and deploying microservic
 
 The remainder of this post explains how to run X-Ray as a sidecar container in a Fargate task. By doing this, you will be able to provide application tracing capabilities to services running on Fargate.
 
-The code, including a simple Node.js based demo application is available in the [src](/src/readme.md) folder, so you can quickly get started with X-Ray.
+The code, including a simple Node.js based demo application is available in the [src](https://github.com/aws-samples/aws-xray-fargate/blob/master/src/README.md) folder, so you can quickly get started with X-Ray.
 
 The sample application within the repository consists of two simple microservices, Service-A and Service-B. The following diagram illustrates how each service is deployed with 2 Fargate services:
 
