@@ -1,6 +1,6 @@
 ## Application Tracing on Fargate with AWS X-Ray
 
-This is a continuation of an earlier post (https://aws.amazon.com/de/blogs/compute/application-tracing-on-kubernetes-with-aws-x-ray/) on application tracking on Kubernetes with AWS X-Ray.
+This is a continuation of an earlier [post](https://aws.amazon.com/de/blogs/compute/application-tracing-on-kubernetes-with-aws-x-ray/) on application tracking on Kubernetes with AWS X-Ray.
 
 As microservices proliferate, the ability to trace calls between different different services becomes increasingly important. This can be accomplished using AWS X-Ray, a managed service that provides distributed application tracing functionality. X-Ray was built to help you understand how your services are interacting with each other by surfacing information such as call latency and exceptions, which together, helps you analyze, debug, and resolve issues faster.
 
@@ -61,9 +61,9 @@ Sending tracing information from your application is straightforward with the X-
 
 Since Fargate is a service that manages the instances your tasks run on, access to the underlying host is prohibited. Consequently, the ECSPlugin and EC2Plugins for X-Ray will not work.
 
+```
 var app = express();
 
-```
 //...
 
 var AWSXRay = require('aws-xray-sdk');
