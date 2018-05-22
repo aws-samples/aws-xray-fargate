@@ -17,8 +17,8 @@ aws iam attach-role-policy --role-name ecsTaskExecutionRole --policy-arn $ECS_EX
 Export the Arns of the task role and the task execution role. 
 
 ```
-export TASK_ROLE_ARN=${aws iam get-role --role-name <role_name> --query "Role.Arn" --output text}
-export TASK_EXECUTION_ROLE_ARN={aws iam get-role --role-name ecsTaskExecutionRole --query "Role.Arn" --output text}
+export TASK_ROLE_ARN=$(aws iam get-role --role-name <role_name> --query "Role.Arn" --output text)
+export TASK_EXECUTION_ROLE_ARN=$(aws iam get-role --role-name ecsTaskExecutionRole --query "Role.Arn" --output text)
 ```
 
 Get a list of subnets in a VPC.  Replace *<vpc_id>* with the vpc id of the vpc where you intend to deploy the services.
