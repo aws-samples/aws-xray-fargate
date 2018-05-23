@@ -22,7 +22,7 @@ const PORT = 8080;
 // App
 const app = express();
 
-XRay.config([XRay.plugins.EC2Plugin, XRay.plugins.ECSPlugin]);
+XRay.config([XRay.plugins.ECSPlugin]);
 XRay.middleware.enableDynamicNaming();
 
 app.use(XRay.express.openSegment('service-b'));
