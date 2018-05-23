@@ -27,7 +27,7 @@ const apiCNAME = process.env.API_CNAME || 'localhost';
 // App
 const app = express();
 
-XRay.config([XRay.plugins.EC2Plugin, XRay.plugins.ECSPlugin]);
+XRay.config([XRay.plugins.ECSPlugin]);
 XRay.middleware.enableDynamicNaming();
 
 app.use(bodyParser.urlencoded({extended: false}));
