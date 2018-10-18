@@ -26,7 +26,7 @@ RUN yum install -y unzip && \
 # Expose port 2000 on udp
 EXPOSE 2000/udp
 
-ENTRYPOINT ["/usr/bin/xray"]
+ENTRYPOINT ["/usr/bin/xray", "-b", "0.0.0.0:2000"]
 
 # No cmd line parameters, use default configuration
 CMD ['']
