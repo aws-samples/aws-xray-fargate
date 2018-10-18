@@ -2,7 +2,7 @@ version: 1
 task_definition:
   ecs_network_mode: awsvpc
   task_role_arn: ${TASK_ROLE_ARN}
-  task_execution_role: ${ECS_EXECUTION_ROLE_ARN}
+  task_execution_role: ${TASK_EXECUTION_ROLE_ARN}
   task_size:
     cpu_limit: 256
     mem_limit: 512
