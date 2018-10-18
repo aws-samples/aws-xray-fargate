@@ -83,14 +83,20 @@ export REGISTRY_URL_XRAY_DAEMON=$(aws ecr describe-repositories --repository-nam
 export REGISTRY_URL_SERVICE_A=$(aws ecr describe-repositories --repository-name service-a | jq -r '.repositories[].repositoryUri')
 ```
 
+Create logs groups.
+
+```
+aws logs create-log-group --log-group-name /ecs/service-b
+aws logs create-log-group --log-group-name /ecs/service-a
+```
+
 Create service B.
 
 ```
 cd ./service-b/
 envsubst < docker-compose.yml-template > docker-compose.yml
 envsubst < ecs-params.yml-template > ecs-params.yml
-ecs-cli compose service up --deployment-max-percent 100 --deployment-min-healthy-percent 0 
---target-group-arn $TARGET_GROUP_ARN --launch-type FARGATE
+ecs-cli compose service up --deployment-max-percent 100 --deployment-min-healthy-percent 0 --target-group-arn $TARGET_GROUP_ARN --launch-type FARGATE
 ```
 
 Create an Application Load Balancer (ALB), listener, and target group for service A.
