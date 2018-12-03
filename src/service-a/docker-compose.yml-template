@@ -14,7 +14,7 @@ services:
         awslogs-region: us-east-1
         awslogs-stream-prefix: ecs
   x-ray:
-    image: ${REGISTRY_URL_XRAY_DAEMON}
+    image: amazon/aws-xray-daemon
     ports:
     - 2000:2000/udp
     environment:
